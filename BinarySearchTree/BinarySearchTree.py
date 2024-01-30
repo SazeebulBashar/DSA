@@ -26,14 +26,48 @@ class BST:
                     cur.right = new_node
                     return True
                 cur = cur.right
-                
+    
+    def contains(self,val):
+        if self.root == None: 
+            return False
+        cur = self.root
+        while cur:
+            if val < cur.val:
+                cur = cur.left
+            elif val > cur.val:
+                cur = cur.right
+            else:
+                return True
+        return False
+
+
+
+
+
+
 
 
 
 t1= BST()
-t1.insert(2)
-t1.insert(1)
-t1.insert(3)
-print(t1.root.val)
-print(t1.root.left.val)
-print(t1.root.right.val)
+
+
+# t1.insert(2)
+# t1.insert(1)
+# t1.insert(3)
+# print(t1.root.val)
+# print(t1.root.left.val)
+# print(t1.root.right.val)
+
+t1.insert(47)
+t1.insert(21)
+t1.insert(76)
+t1.insert(18)
+t1.insert(27)
+t1.insert(52)
+t1.insert(82)
+
+print('BST Contains 27:')
+print(t1.contains(27))
+
+print('\nBST Contains 17:')
+print(t1.contains(17))
